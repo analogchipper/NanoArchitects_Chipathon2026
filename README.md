@@ -1,7 +1,7 @@
 # NanoArchitects_Chipathon2026
 # Gas Sensor AFE ASIC — Team NanoArchitects
 
-**IEEE SSCS Chipathon 2026, Track B** · GF180MCU 180nm CMOS PDK · July 2026
+**IEEE SSCS Chipathon 2026, Track B** · GF180MCU 180nm CMOS PDK 
 
 ## Overview
 
@@ -54,8 +54,6 @@ Target sensor current ratings used for TIA evaluation:
 | H₂S | 0–50 ppm | 2.0 µA/ppm | 100 µA |
 | CO | 0–1000 ppm | 0.1 µA/ppm | 102 µA |
 | Cl₂ | 0–20 ppm | 1.2 µA/ppm | 24 µA |
-
-> Note: the 7HH H₂S sensor variant exceeds the TIA's 373 µA linear limit and is flagged as out of range.
 
 ### MOX Channel — Integrator (Methane sensor)
 | Parameter | Value |
@@ -135,7 +133,7 @@ Target sensor current ratings used for TIA evaluation:
 ## Team
 
 **NanoArchitects**
-- Alaqmar — EC TIA & op-amp gain stage
-- Ankith B. — MOX integrator
-- Rishi Raghav S. — Output buffer
-- Shaik Kareena — Bias generator / PTAT
+- Alaqmar 
+- Ankith B.
+- Rishi Raghav S. 
+- Shaik Kareena 
