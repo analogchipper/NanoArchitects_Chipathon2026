@@ -22,12 +22,14 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 | EC TIA | ✅ Complete |
 | MOX Integrator + Reset Sw. | ✅ Complete |
 | Output Buffers | ✅ Complete |
-| Bias Generator | ✅ Complete |
+| Bias Generator (BGR) | ✅ Complete |
 | Comparators | ✅ Complete |
 
 ## Key Specifications
 
 ### Op-Amp (`opamp_poly`)
+
+📄 [Full Datasheet (PDF)](docs/datasheets/OPAMP_Datasheet.pdf)
 
 | Parameter | Value |
 |---|---|
@@ -37,6 +39,8 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 | CMRR | 102.8 dB |
 | PSRR | 81.9 dB |
 | Slew Rate (+/-) | 194.4 / 96.0 V/µs |
+| Input Common-Mode Range | 38 mV – 3.06 V |
+| Output Swing | 0 V – 3.23 V @ VDD = 3.3 V |
 | Quiescent Current | 943 µA |
 
 ### EC Channel — TIA
@@ -60,6 +64,15 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 | System Parameters | Vp = 1.3 V, ΔV = 0.5 V, Cint = 10 µF |
 | Reset Pin | `RESET_INT`, active-high, MCU-controlled |
 
+### Bias Generator (BGR)
+
+| Parameter | Value |
+|---|---|
+| Reference Voltage | 1.2 V bandgap core, scaled to Vp = 2.8 V |
+| Supply Voltage | 3.3 V |
+| Temp. Coefficient | < 50 ppm/°C |
+| Power Consumption | < 50 µA |
+
 ## Pin Assignment (~15 pads)
 
 ![Pin Assignment](docs/images/pin_assignment.png)
@@ -74,37 +87,61 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ### Op-Amp
 
-| Schematic | Open-Loop Gain (80 dB) | Phase Margin (70°) |
+| Schematic | AC Bode (Gain 80 dB) | Phase Margin (70°) |
 |---|---|---|
-| ![Opamp Schematic](docs/images/opamp_schematic.png) | ![Gain](docs/images/opamp_gain.png) | ![PM](docs/images/opamp_phase_margin.png) |
+| ![Opamp Schematic](docs/images/opamp_schematic.png) | ![AC Bode](docs/images/OpAmp_ACBode.png) | ![Phase](docs/images/OpAmp_Phase.png) |
 
-| CMRR (102 dB) | PSRR (81.9 dB) |
-|---|---|
-| ![CMRR](docs/images/opamp_cmrr.png) | ![PSRR](docs/images/opamp_psrr.png) |
+| CMRR (102 dB) | PSRR (81.9 dB) | ICMR |
+|---|---|---|
+| ![CMRR](docs/images/OpAmp_CMRR.png) | ![PSRR](docs/images/OpAmp_PSRR.png) | ![ICMR](docs/images/OpAmp_ICMR.png) |
+
+**Slew Rate:** rising SR = 194.4 V/µs, falling SR = 96.0 V/µs — asymmetry expected due to sourcing/sinking drive imbalance in the output stage (confirmed against datasheet).
+
+![Slew Rate](docs/images/OpAmp_slew.png)
 
 ### EC TIA
 
 ![TIA Schematic](docs/images/tia_schematic.png)
 
-Linear output verified over 100 nA – 380 µA input range:
+AC response and DC linearity:
 
-![TIA Linearity](docs/images/tia_linearity.png)
-
-Response mapped against gas concentration (Cl₂ sensor) and ADC codes:
-
-| | |
+| AC Bode | DC Sweep (Vout vs Iin) |
 |---|---|
-| ![Gas Conc 1](docs/images/tia_gas_concentration_1.png) | ![Gas Conc 2](docs/images/tia_gas_concentration_2.png) |
+| ![TIA AC Bode](docs/images/TIA_acbode.png) | ![TIA DC Sweep](docs/images/TIA_DCsweep_OutVsCurrentInput.png) |
+
+Input/output noise spectrum:
+
+| Input-Referred Noise | Output Noise |
+|---|---|
+| ![Input Noise](docs/images/TIA_inputnoiseSpectrum.png) | ![Output Noise](docs/images/TIA_outputnoiseSpectrum.png) |
+
+Gas response (CO sensor): current vs. ppm, and ppm vs. ADC code:
+
+| Current vs. ppm | ppm vs. ADC code |
+|---|---|
+| ![Current vs ppm](docs/images/TIA_currentvsppm_COsensor.png) | ![ppm vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
+
+### Bias Generator (BGR)
+
+![BGR U-curve](docs/images/BGR_Ucurve.png)
 
 ---
 
 ## Repository Structure
 
 ```
-├── docs/               Project brief (PDF) and images used in this README
-├── xschem/             Schematic source files (.sch), one folder per block
-├── simulations/         Testbenches, .raw sim data, and generated plots
-└── layout/             (in progress) GDS/layout files, DRC/LVS reports
+├── docs/
+│   ├── datasheets/      Component datasheets (PDF)
+│   └── images/          Diagrams and simulation plots used in this README
+├── xschem/              Schematic source files (.sch, .sym), one folder per block
+│   ├── opamp/
+│   ├── ec_tia/
+│   ├── bgr/
+│   ├── mox_integrator/
+│   ├── output_buffer/
+│   └── comparator/
+├── simulations/          Testbenches and .raw sim data
+└── layout/               (in progress) GDS/layout files, DRC/LVS reports
 ```
 
 ## Reproducing Simulations
