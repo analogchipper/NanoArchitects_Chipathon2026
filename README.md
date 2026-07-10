@@ -13,7 +13,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ## Block Diagram
 
-![Block Diagram](docs/images/block_diagram.png)
+[Block Diagram](docs/images/block_diagram.png)
 
 ## Status: All blocks complete ✅
 
@@ -75,11 +75,11 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 **Multi-rail bias distribution.** The BGR core outputs a single reference (`Vref`), which is buffered through `OPAMP_silicon` (unity-gain, driven from the same op-amp used elsewhere on-chip) and then divided through a resistor ladder (R1–R4) to generate every bias voltage the other blocks need: `v_2.8` (EC TIA virtual ground), `voref`, and `v_1.3` / `v_0.8` (MOX integrator system voltages). Using a single buffered reference plus a resistor ladder — instead of separate bandgap cores per block — keeps all bias points ratiometrically matched and saves die area.
 
-![BGR Multi-Bias Distribution](docs/images/BGR_Opamp_MultipleBias.png)
+📎 [View multi-bias distribution schematic](docs/images/BGR_Opamp_MultipleBias.png)
 
 ## Pin Assignment (~15 pads)
 
-![Pin Assignment](docs/images/pin_assignment.png)
+[Pin Assignment](docs/images/pin_assignment.png)
 
 ## Estimated Die Area
 
@@ -93,41 +93,41 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 | Schematic | AC Bode (Gain 80 dB) | Phase Margin (70°) |
 |---|---|---|
-| ![Opamp Schematic](docs/images/opamp_schematic.png) | ![AC Bode](docs/images/OpAmp_ACBode.png) | ![Phase](docs/images/OpAmp_Phase.png) |
+| [Opamp Schematic](docs/images/opamp_schematic.png) | [AC Bode](docs/images/OpAmp_ACBode.png) | [Phase](docs/images/OpAmp_Phase.png) |
 
 | CMRR (102 dB) | PSRR (81.9 dB) | ICMR |
 |---|---|---|
-| ![CMRR](docs/images/OpAmp_CMRR.png) | ![PSRR](docs/images/OpAmp_PSRR.png) | ![ICMR](docs/images/OpAmp_ICMR.png) |
+| [CMRR](docs/images/OpAmp_CMRR.png) | [PSRR](docs/images/OpAmp_PSRR.png) | [ICMR](docs/images/OpAmp_ICMR.png) |
 
 **Slew Rate:** rising SR = 194.4 V/µs, falling SR = 96.0 V/µs — asymmetry expected due to sourcing/sinking drive imbalance in the output stage (confirmed against datasheet).
 
-![Slew Rate](docs/images/OpAmp_slew.png)
+[Slew Rate](docs/images/OpAmp_slew.png)
 
 ### EC TIA
 
-![TIA Schematic](docs/images/tia_schematic.png)
+[TIA Schematic](docs/images/tia_schematic.png)
 
 AC response and DC linearity:
 
 | AC Bode | DC Sweep (Vout vs Iin) |
 |---|---|
-| ![TIA AC Bode](docs/images/TIA_acbode.png) | ![TIA DC Sweep](docs/images/TIA_DCsweep_OutVsCurrentInput.png) |
+| [TIA AC Bode](docs/images/TIA_acbode.png) | [TIA DC Sweep](docs/images/TIA_DCsweep_OutVsCurrentInput.png) |
 
 Input/output noise spectrum:
 
 | Input-Referred Noise | Output Noise |
 |---|---|
-| ![Input Noise](docs/images/TIA_inputnoiseSpectrum.png) | ![Output Noise](docs/images/TIA_outputnoiseSpectrum.png) |
+| [Input Noise](docs/images/TIA_inputnoiseSpectrum.png) | [Output Noise](docs/images/TIA_outputnoiseSpectrum.png) |
 
 Gas response (CO sensor): current vs. ppm, and ppm vs. ADC code:
 
 | Current vs. ppm | ppm vs. ADC code |
 |---|---|
-| ![Current vs ppm](docs/images/TIA_currentvsppm_COsensor.png) | ![ppm vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
+| [Current vs ppm](docs/images/TIA_currentvsppm_COsensor.png) | [ppm vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
 
 ### Bias Generator (BGR)
 
-![BGR U-curve](docs/images/BGR_Ucurve.png)
+[BGR U-curve](docs/images/BGR_Ucurve.png)
 
 ---
 
