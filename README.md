@@ -21,7 +21,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 |---|---|
 | EC TIA | ✅ Complete |
 | MOX Integrator + Reset Sw. | ✅ Complete |
-| Output Buffers | ✅ Complete |
+| Output Buffers | In Progress |
 | Bias Generator (BGR) | ✅ Complete |
 | Comparators | ✅ Complete |
 
