@@ -15,7 +15,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ![Block Diagram](docs/images/block_diagram.png)
 
-## Status: All blocks complete ✅
+## Status: All blocks 90% complete ✅
 
 | Block | Status |
 |---|---|
