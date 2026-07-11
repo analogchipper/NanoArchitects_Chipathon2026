@@ -13,7 +13,8 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ## Block Diagram
 
-![Block Diagram](docs/images/block_diagram.png)
+<img width="820" height="735" alt="GasSensorChip_Chipathon drawio(1)" src="https://github.com/user-attachments/assets/db7709a1-35c0-477b-942b-dbbeba80c04d" />
+
 
 ## Status: All blocks 90% complete ✅
 
