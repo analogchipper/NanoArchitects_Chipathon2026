@@ -126,9 +126,9 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 |---|---|
 | ![Input Noise](docs/images/TIA_inputnoiseSpectrum.png) | ![Output Noise](docs/images/TIA_outputnoiseSpectrum.png) |
 
-**Gas response (CO sensor):** current vs. ppm, and ppm vs. ADC code:
+**Gas response (CO sensor):**
 
-| Current vs. ppm | ppm vs. ADC code |
+| Sensor Concentration(ppm) vs Current(uA) | Sensor Concentration(ppm) vs ADC code |
 |---|---|
 | ![Sensor Concentration(ppm) vs Current(uA)](docs/images/TIA_currentvsppm_COsensor.png) | ![Sensor Concentration(ppm) vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
 
