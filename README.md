@@ -130,16 +130,21 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 | Current vs. ppm | ppm vs. ADC code |
 |---|---|
-| ![Current vs ppm](docs/images/TIA_currentvsppm_COsensor.png) | ![ppm vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
+| ![Sensor Concentration(ppm) vs Current(uA)](docs/images/TIA_currentvsppm_COsensor.png) | ![Sensor Concentration(ppm) vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
 
 ### Bias Generator (BGR)
 
 **🔗 [View BGR schematic file (`BGR_BJT.sch`)](xschem/bias_generator/BGR_BJT.sch)**
 
-![BGR U-curve](docs/images/BGR_Ucurve.png)
+**BGR Core Schematic:**
+![BGR Schematic](docs/images/BGR_sch.png)
 
-Multi Bias Generation Result
-![View multi-bias distribution schematic](docs/images/MultiBiasGeneration.png)
+**Multi-Bias Distribution Schematic:**
+![Multi-Bias Distribution Schematic](docs/images/MultiBiasGeneration.png)
+
+**Simulation Results:**
+![BGR U-curve](docs/images/BGR_Ucurve.png)
+![Multiple Bias Generation](docs/images/BGR_Opamp_MultipleBias.png)
 
 ---
 
@@ -147,17 +152,17 @@ Multi Bias Generation Result
 
 ```
 ├── docs/
-│   ├── datasheets/      Component datasheets (PDF)
-│   └── images/          Diagrams and simulation plots used in this README
-├── xschem/              Schematic source files (.sch, .sym), one folder per block
-│   ├── opamp/
-│   ├── ec_tia/
-│   ├── bias_generator/
-│   ├── mox_integrator/
-│   ├── output_buffer/
-│   └── comparator/
-├── simulations/          Testbenches and .raw sim data
-└── layout/               (in progress) GDS/layout files, DRC/LVS reports
+│   ├── datasheets/      Component datasheets (PDF)
+│   └── images/          Diagrams and simulation plots used in this README
+├── xschem/              Schematic source files (.sch, .sym), one folder per block
+│   ├── opamp/
+│   ├── ec_tia/
+│   ├── bias_generator/
+│   ├── mox_integrator/
+│   ├── output_buffer/
+│   └── comparator/
+├── simulations/          Testbenches and .raw sim data
+└── layout/               (in progress) GDS/layout files, DRC/LVS reports
 ```
 ## Team NanoArchitects
 
