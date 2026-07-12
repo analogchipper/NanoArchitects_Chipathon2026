@@ -98,7 +98,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 |---|---|---|
 | ![Opamp Schematic](docs/images/OpAmp_sch.png) | ![AC Bode](docs/images/OpAmp_ACBode.png) | ![Phase](docs/images/OpAmp_Phase.png) |
 
-| CMRR (102 dB) | PSRR (81.9 dB) | ICMR |
+| CMRR (102 dB) | PSRR (81.9 dB) | ICMR(0.2 - 3.1 V) |
 |---|---|---|
 | ![CMRR](docs/images/OpAmp_CMRR.png) | ![PSRR](docs/images/OpAmp_PSRR.png) | ![ICMR](docs/images/OpAmp_ICMR.png) |
 
