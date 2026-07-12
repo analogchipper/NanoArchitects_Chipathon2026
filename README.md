@@ -160,6 +160,19 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 |---|---|
 | ![Sensor Concentration(ppm) vs Current(uA)](docs/images/TIA_currentvsppm_COsensor.png) | ![Sensor Concentration(ppm) vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
 **TIA Summary:** The Transimpedance Amplifier achieves excellent DC linearity across the entire 100 nA to 373 µA input range, directly translating into accurate ppm gas readings. The AC Bode plot confirms unconditional stability (65° phase margin), while the noise spectrum analysis demonstrates minimal input-referred noise—a critical requirement for resolving minute electrochemical sensor currents.
+
+### MOX Integrator
+
+**🔗 [View MOX Integrator schematic file (`integrator.sch`)](xschem/mox_integrator/int.sch)**
+
+**Integrator Schematic:**
+![MOX Integrator Schematic](docs/images/Integrator_MOX_sch.png)
+
+**Transient Waveform:**
+![MOX Integrator Transient Waveform](docs/images/Integrator_tran_2k.png)
+![MOX Integrator Transient Waveform](docs/images/Integrator_tran_20k.png)
+
+**MOX Integrator Summary:** The MOX sensor acts as a variable resistor where its resistance changes according to the environmental gas concentration. This varying resistance dictates the amount of current entering the integrator's capacitor, which changes the time it takes for the output voltage to ramp from a 1.3V reference baseline up to a 2.5V threshold. An external MCU measures this specific ramp time to accurately determine the sensor resistance, which directly reflects the real-time gas concentration as can be seen in the above results.
 ### Bias Generator (BGR)
 
 **🔗 [View BGR schematic file (`BGR_BJT.sch`)](xschem/bias_generator/BGR_BJT.sch)**
