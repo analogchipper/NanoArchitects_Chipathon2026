@@ -106,6 +106,19 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ![Slew Rate](docs/images/OpAmp_slew.png)
 
+
+### Output Buffers
+
+**🔗 [View Buffer schematic file (`buffer.sch`)](xschem/output_buffer/buffer.sch)**
+
+**Buffer Schematic:**
+![Output Buffer Schematic](docs/images/Buffer_sch.png)
+
+**Transient Waveform:**
+![Buffer Transient Waveform](docs/images/Buffer_tranWaveform.png)
+
+> 💡 **Buffer Summary:**
+
 ### EC TIA
 
 **🔗 [View TIA schematic file (`TIA.sch`)](xschem/ec_tia/TIA.sch)**
