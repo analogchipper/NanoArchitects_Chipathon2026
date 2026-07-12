@@ -123,15 +123,15 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ### Comparators
 
-**🔗 [View Comparator schematic file (`comparator.sch`)](xschem/comparator/comparator.sch)**
+**🔗 [View Comparator schematic file (`comparator.sch`)](xschem/comparator/comp.sch)**
 
 **Comparator Schematic:**
 ![Comparator Schematic](docs/images/Comparator_sch.png)
 
 **Transient Waveform:**
-![Comparator Transient Waveform](docs/images/Comparator_tran.png)
+![Comparator Transient Waveform](docs/images/Comparator_Tran.png)
 
- **Comparator Summary:** The comparator acts as the critical bridge between the analog sensor front-end and digital logic. It provides fast, precise threshold detection to trigger system alerts or wake-up events when gas concentrations exceed predefined safety levels. The transient simulation confirms quick response times and sharp output transitions, ensuring reliable level-crossing detection even with slowly varying, noisy sensor inputs.
+ **Comparator Summary:** The comparator acts as the critical bridge between the analog sensor front-end and the digital logic domain, providing precise threshold detection to trigger system alerts or wake-up events when gas concentrations exceed predefined safety levels. The transient simulation validates its fast response and confirms its inverting topology: the output drives low (0) when the sensor signal exceeds the reference voltage (Vin > Vref), and transitions high (1) when it drops below the threshold. This active-low configuration ensures reliable event triggering for downstream digital processing.
 
 ---
 ### EC TIA
