@@ -13,15 +13,16 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ## Block Diagram
 
-![Block Diagram](docs/images/block_diagram.png)
+<img width="820" height="735" alt="GasSensorChip_Chipathon drawio(1)" src="https://github.com/user-attachments/assets/db7709a1-35c0-477b-942b-dbbeba80c04d" />
 
-## Status: All blocks complete ✅
+
+## Status: All blocks 90% complete ✅
 
 | Block | Status |
 |---|---|
 | EC TIA | ✅ Complete |
 | MOX Integrator + Reset Sw. | ✅ Complete |
-| Output Buffers | ✅ Complete |
+| Output Buffers | In Progress |
 | Bias Generator (BGR) | ✅ Complete |
 | Comparators | ✅ Complete |
 
@@ -91,7 +92,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ### Op-Amp
 
-**🔗 [View live interactive Op-Amp schematic (`opamp_poly.sch`)](https://xschem-viewer.com/?file=https://raw.githubusercontent.com/analogchipper/NanoArchitects_Chipathon2026/main/xschem/opamp/opamp_poly.sch)**
+**🔗 [View Op-Amp schematic file (`opamp_poly.sch`)](xschem/opamp/opamp_poly.sch)**
 
 | Schematic | AC Bode (Gain 80 dB) | Phase Margin (70°) |
 |---|---|---|
@@ -107,9 +108,9 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ### EC TIA
 
-**🔗 [View live interactive TIA schematic (`TIA.sch`)](https://xschem-viewer.com/?file=https://raw.githubusercontent.com/analogchipper/NanoArchitects_Chipathon2026/main/xschem/ec_tia/TIA.sch)**
+**🔗 [View TIA schematic file (`TIA.sch`)](xschem/ec_tia/TIA.sch)**
 
-**🔗 [View live interactive Top-Level Sensor System schematic (`ECSensorSim.sch`)](https://xschem-viewer.com/?file=https://raw.githubusercontent.com/analogchipper/NanoArchitects_Chipathon2026/main/xschem/ec_tia/ECSensorSim.sch)**
+**🔗 [View Top-Level Sensor System schematic file (`ECSensorSim.sch`)](xschem/ec_tia/ECSensorSim.sch)**
 
 ![TIA Schematic](docs/images/tia_schematic.png)
 
@@ -133,7 +134,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ### Bias Generator (BGR)
 
-**🔗 [View live interactive BGR schematic (`BGR_BJT.sch`)](https://xschem-viewer.com/?file=https://raw.githubusercontent.com/analogchipper/NanoArchitects_Chipathon2026/main/xschem/bias_generator/BGR_BJT.sch)**
+**🔗 [View BGR schematic file (`BGR_BJT.sch`)](xschem/bias_generator/BGR_BJT.sch)**
 
 ![BGR U-curve](docs/images/BGR_Ucurve.png)
 
@@ -143,17 +144,17 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ```
 ├── docs/
-│   ├── datasheets/      Component datasheets (PDF)
-│   └── images/          Diagrams and simulation plots used in this README
-├── xschem/              Schematic source files (.sch, .sym), one folder per block
-│   ├── opamp/
-│   ├── ec_tia/
-│   ├── bias_generator/
-│   ├── mox_integrator/
-│   ├── output_buffer/
-│   └── comparator/
-├── simulations/          Testbenches and .raw sim data
-└── layout/               (in progress) GDS/layout files, DRC/LVS reports
+│   ├── datasheets/      Component datasheets (PDF)
+│   └── images/          Diagrams and simulation plots used in this README
+├── xschem/              Schematic source files (.sch, .sym), one folder per block
+│   ├── opamp/
+│   ├── ec_tia/
+│   ├── bias_generator/
+│   ├── mox_integrator/
+│   ├── output_buffer/
+│   └── comparator/
+├── simulations/          Testbenches and .raw sim data
+└── layout/               (in progress) GDS/layout files, DRC/LVS reports
 ```
 
 ## Reproducing Simulations
