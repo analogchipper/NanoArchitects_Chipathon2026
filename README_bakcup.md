@@ -4,7 +4,7 @@
 
 Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (electrochemical) gas sensing.
 
-| | |
+| Feature | Description |
 |---|---|
 | **EC sensors** | Selective but slow — good for identifying gas type |
 | **MOX sensors** | Fast response but lack selectivity — good for real-time detection |
@@ -13,15 +13,16 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ## Block Diagram
 
-[Block Diagram](docs/images/block_diagram.png)
+<img width="820" height="735" alt="GasSensorChip_Chipathon drawio(1)" src="https://github.com/user-attachments/assets/db7709a1-35c0-477b-942b-dbbeba80c04d" />
 
-## Status: All blocks complete ✅
+
+## Status: All blocks 90% complete ✅
 
 | Block | Status |
 |---|---|
 | EC TIA | ✅ Complete |
 | MOX Integrator + Reset Sw. | ✅ Complete |
-| Output Buffers | ✅ Complete |
+| Output Buffers | In Progress |
 | Bias Generator (BGR) | ✅ Complete |
 | Comparators | ✅ Complete |
 
@@ -75,11 +76,11 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 **Multi-rail bias distribution.** The BGR core outputs a single reference (`Vref`), which is buffered through `OPAMP_silicon` (unity-gain, driven from the same op-amp used elsewhere on-chip) and then divided through a resistor ladder (R1–R4) to generate every bias voltage the other blocks need: `v_2.8` (EC TIA virtual ground), `voref`, and `v_1.3` / `v_0.8` (MOX integrator system voltages). Using a single buffered reference plus a resistor ladder — instead of separate bandgap cores per block — keeps all bias points ratiometrically matched and saves die area.
 
-📎 [View multi-bias distribution schematic](docs/images/BGR_Opamp_MultipleBias.png)
+![View multi-bias distribution schematic](docs/images/BGR_Opamp_MultipleBias.png)
 
 ## Pin Assignment (~15 pads)
 
-[Pin Assignment](docs/images/pin_assignment.png)
+![Pin Assignment](docs/images/pin_assignment.png)
 
 ## Estimated Die Area
 
@@ -91,43 +92,51 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 ### Op-Amp
 
+**🔗 [View Op-Amp schematic file (`opamp_poly.sch`)](xschem/opamp/opamp_poly.sch)**
+
 | Schematic | AC Bode (Gain 80 dB) | Phase Margin (70°) |
 |---|---|---|
-| [Opamp Schematic](docs/images/opamp_schematic.png) | [AC Bode](docs/images/OpAmp_ACBode.png) | [Phase](docs/images/OpAmp_Phase.png) |
+| ![Opamp Schematic](docs/images/opamp_schematic.png) | ![AC Bode](docs/images/OpAmp_ACBode.png) | ![Phase](docs/images/OpAmp_Phase.png) |
 
 | CMRR (102 dB) | PSRR (81.9 dB) | ICMR |
 |---|---|---|
-| [CMRR](docs/images/OpAmp_CMRR.png) | [PSRR](docs/images/OpAmp_PSRR.png) | [ICMR](docs/images/OpAmp_ICMR.png) |
+| ![CMRR](docs/images/OpAmp_CMRR.png) | ![PSRR](docs/images/OpAmp_PSRR.png) | ![ICMR](docs/images/OpAmp_ICMR.png) |
 
 **Slew Rate:** rising SR = 194.4 V/µs, falling SR = 96.0 V/µs — asymmetry expected due to sourcing/sinking drive imbalance in the output stage (confirmed against datasheet).
 
-[Slew Rate](docs/images/OpAmp_slew.png)
+![Slew Rate](docs/images/OpAmp_slew.png)
 
 ### EC TIA
 
-[TIA Schematic](docs/images/tia_schematic.png)
+**🔗 [View TIA schematic file (`TIA.sch`)](xschem/ec_tia/TIA.sch)**
 
-AC response and DC linearity:
+**🔗 [View Top-Level Sensor System schematic file (`ECSensorSim.sch`)](xschem/ec_tia/ECSensorSim.sch)**
+
+![TIA Schematic](docs/images/tia_schematic.png)
+
+**AC response and DC linearity:**
 
 | AC Bode | DC Sweep (Vout vs Iin) |
 |---|---|
-| [TIA AC Bode](docs/images/TIA_acbode.png) | [TIA DC Sweep](docs/images/TIA_DCsweep_OutVsCurrentInput.png) |
+| ![TIA AC Bode](docs/images/TIA_acbode.png) | ![TIA DC Sweep](docs/images/TIA_DCsweep_OutVsCurrentInput.png) |
 
-Input/output noise spectrum:
+**Input/output noise spectrum:**
 
 | Input-Referred Noise | Output Noise |
 |---|---|
-| [Input Noise](docs/images/TIA_inputnoiseSpectrum.png) | [Output Noise](docs/images/TIA_outputnoiseSpectrum.png) |
+| ![Input Noise](docs/images/TIA_inputnoiseSpectrum.png) | ![Output Noise](docs/images/TIA_outputnoiseSpectrum.png) |
 
-Gas response (CO sensor): current vs. ppm, and ppm vs. ADC code:
+**Gas response (CO sensor):** current vs. ppm, and ppm vs. ADC code:
 
 | Current vs. ppm | ppm vs. ADC code |
 |---|---|
-| [Current vs ppm](docs/images/TIA_currentvsppm_COsensor.png) | [ppm vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
+| ![Current vs ppm](docs/images/TIA_currentvsppm_COsensor.png) | ![ppm vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
 
 ### Bias Generator (BGR)
 
-[BGR U-curve](docs/images/BGR_Ucurve.png)
+**🔗 [View BGR schematic file (`BGR_BJT.sch`)](xschem/bias_generator/BGR_BJT.sch)**
+
+![BGR U-curve](docs/images/BGR_Ucurve.png)
 
 ---
 
@@ -135,17 +144,17 @@ Gas response (CO sensor): current vs. ppm, and ppm vs. ADC code:
 
 ```
 ├── docs/
-│   ├── datasheets/      Component datasheets (PDF)
-│   └── images/          Diagrams and simulation plots used in this README
-├── xschem/              Schematic source files (.sch, .sym), one folder per block
-│   ├── opamp/
-│   ├── ec_tia/
-│   ├── bgr/
-│   ├── mox_integrator/
-│   ├── output_buffer/
-│   └── comparator/
-├── simulations/          Testbenches and .raw sim data
-└── layout/               (in progress) GDS/layout files, DRC/LVS reports
+│   ├── datasheets/      Component datasheets (PDF)
+│   └── images/          Diagrams and simulation plots used in this README
+├── xschem/              Schematic source files (.sch, .sym), one folder per block
+│   ├── opamp/
+│   ├── ec_tia/
+│   ├── bias_generator/
+│   ├── mox_integrator/
+│   ├── output_buffer/
+│   └── comparator/
+├── simulations/          Testbenches and .raw sim data
+└── layout/               (in progress) GDS/layout files, DRC/LVS reports
 ```
 
 ## Reproducing Simulations
