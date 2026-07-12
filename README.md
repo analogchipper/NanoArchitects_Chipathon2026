@@ -118,8 +118,22 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 **Transient Waveform:**
 ![Buffer Transient Waveform](docs/images/Buffer_tranWaveform.png)
 
-> **Buffer Summary:**
+**Buffer Summary:** The operational amplifier buffer provides essential signal isolation and drive capabilities. It is instantiated twice within the AFE architecture: (1) to provide sufficient drive strength to pass the EC TIA output voltage to an off-chip ADC, and (2) to supply a highly stable, low-impedance reference bias to the MOX integrator. The transient simulations verify that the buffer faithfully tracks dynamic signals with excellent settling time and minimal distortion under load.
 
+
+### Comparators
+
+**🔗 [View Comparator schematic file (`comparator.sch`)](xschem/comparator/comparator.sch)**
+
+**Comparator Schematic:**
+![Comparator Schematic](docs/images/Comparator_sch.png)
+
+**Transient Waveform:**
+![Comparator Transient Waveform](docs/images/Comparator_tran.png)
+
+ **Comparator Summary:** The comparator acts as the critical bridge between the analog sensor front-end and digital logic. It provides fast, precise threshold detection to trigger system alerts or wake-up events when gas concentrations exceed predefined safety levels. The transient simulation confirms quick response times and sharp output transitions, ensuring reliable level-crossing detection even with slowly varying, noisy sensor inputs.
+
+---
 ### EC TIA
 
 **🔗 [View TIA schematic file (`TIA.sch`)](xschem/ec_tia/TIA.sch)**
