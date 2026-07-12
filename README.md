@@ -76,7 +76,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 **Multi-rail bias distribution.** The BGR core outputs a single reference (`Vref`), which is buffered through `OPAMP_silicon` (unity-gain, driven from the same op-amp used elsewhere on-chip) and then divided through a resistor ladder (R1–R4) to generate every bias voltage the other blocks need: `v_2.8` (EC TIA virtual ground), `voref`, and `v_1.3` / `v_0.8` (MOX integrator system voltages). Using a single buffered reference plus a resistor ladder — instead of separate bandgap cores per block — keeps all bias points ratiometrically matched and saves die area.
 
-![View multi-bias distribution schematic](docs/images/BGR_Opamp_MultipleBias.png)
+
 
 ## Pin Assignment (~15 pads)
 
@@ -137,7 +137,8 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 **🔗 [View BGR schematic file (`BGR_BJT.sch`)](xschem/bias_generator/BGR_BJT.sch)**
 
 ![BGR U-curve](docs/images/BGR_Ucurve.png)
-
+Multi Bias Generation Result
+![View multi-bias distribution schematic](docs/images/BGR_Opamp_MultipleBias.png)
 ---
 
 ## Repository Structure
