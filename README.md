@@ -159,15 +159,6 @@ Multi Bias Generation Result
 ├── simulations/          Testbenches and .raw sim data
 └── layout/               (in progress) GDS/layout files, DRC/LVS reports
 ```
-
-## Reproducing Simulations
-
-```bash
-# Requires xschem + ngspice installed
-cd xschem/opamp
-xschem opamp_tb.sch
-```
-
 ## Team NanoArchitects
 
 - Alaqmar
