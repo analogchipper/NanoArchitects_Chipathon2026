@@ -105,6 +105,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 **Slew Rate:** rising SR = 194.4 V/µs, falling SR = 96.0 V/µs — asymmetry expected due to sourcing/sinking drive imbalance in the output stage (confirmed against datasheet).
 
 ![Slew Rate](docs/images/OpAmp_slew.png)
+**Op-Amp Summary:** The AC response confirms a high open-loop gain (>80 dB) and excellent stability with a 70.2° phase margin. High CMRR (>102 dB) and PSRR (>81 dB) ensure the amplifier remains highly robust against supply noise and common-mode fluctuations, which is essential for accurate, low-noise sensor signal conditioning. 
 
 
 ### Output Buffers
@@ -117,7 +118,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 **Transient Waveform:**
 ![Buffer Transient Waveform](docs/images/Buffer_tranWaveform.png)
 
-> 💡 **Buffer Summary:**
+> **Buffer Summary:**
 
 ### EC TIA
 
@@ -144,7 +145,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 | Sensor Concentration(ppm) vs Current(uA) | Sensor Concentration(ppm) vs ADC code |
 |---|---|
 | ![Sensor Concentration(ppm) vs Current(uA)](docs/images/TIA_currentvsppm_COsensor.png) | ![Sensor Concentration(ppm) vs ADC](docs/images/TIA_ppmvsadccode_COsensor.png) |
-
+**TIA Summary:** The Transimpedance Amplifier achieves excellent DC linearity across the entire 100 nA to 373 µA input range, directly translating into accurate ppm gas readings. The AC Bode plot confirms unconditional stability (65° phase margin), while the noise spectrum analysis demonstrates minimal input-referred noise—a critical requirement for resolving minute electrochemical sensor currents.
 ### Bias Generator (BGR)
 
 **🔗 [View BGR schematic file (`BGR_BJT.sch`)](xschem/bias_generator/BGR_BJT.sch)**
@@ -158,7 +159,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 **Simulation Results:**
 ![BGR U-curve](docs/images/BGR_Ucurve.png)
 ![Multiple Bias Generation](docs/images/BGR_Opamp_MultipleBias.png)
-
+**BGR Summary:** The U-curve validates a highly stable reference voltage with a temperature coefficient of less than 50 ppm/°C across the target thermal operating range. The multi-bias generation network successfully buffers and scales this core voltage to provide clean, ratiometrically matched sub-rails (2.8V, 1.3V, and 0.8V) for all other on-chip blocks.
 ---
 
 ## Repository Structure
