@@ -96,7 +96,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 | Schematic | AC Bode (Gain 80 dB) | Phase Margin (70°) |
 |---|---|---|
-| ![Opamp Schematic](docs/images/opamp_schematic.png) | ![AC Bode](docs/images/OpAmp_ACBode.png) | ![Phase](docs/images/OpAmp_Phase.png) |
+| ![Opamp Schematic](docs/images/OpAmp_sch.png) | ![AC Bode](docs/images/OpAmp_ACBode.png) | ![Phase](docs/images/OpAmp_Phase.png) |
 
 | CMRR (102 dB) | PSRR (81.9 dB) | ICMR |
 |---|---|---|
@@ -112,7 +112,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 
 **🔗 [View Top-Level Sensor System schematic file (`ECSensorSim.sch`)](xschem/ec_tia/ECSensorSim.sch)**
 
-![TIA Schematic](docs/images/tia_schematic.png)
+![TIA Schematic](docs/images/TIA_EC_sch.png)
 
 **AC response and DC linearity:**
 
@@ -139,7 +139,7 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 ![BGR U-curve](docs/images/BGR_Ucurve.png)
 
 Multi Bias Generation Result
-![View multi-bias distribution schematic](docs/images/BGR_Opamp_MultipleBias.png)
+![View multi-bias distribution schematic](docs/images/MultiBiasGeneration.png)
 
 ---
 
