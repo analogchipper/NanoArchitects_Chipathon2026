@@ -226,17 +226,17 @@ The table below validates the system-level integrator performance across heavy g
 
 ## Repository Structure
 
-```
 ├── docs/
 │   ├── datasheets/      Component datasheets (PDF)
 │   └── images/          Diagrams and simulation plots used in this README
 ├── xschem/              Schematic source files (.sch, .sym), one folder per block
-│   ├── opamp/
-│   ├── ec_tia/
 │   ├── bias_generator/
+│   ├── comparator/
+│   ├── ec_tia/
 │   ├── mox_integrator/
+│   ├── opamp/
 │   ├── output_buffer/
-│   └── comparator/
+│   └── afe_top/       Overall AFE system integration schematic
 ├── simulations/          Testbenches and .raw sim data
 └── layout/               (in progress) GDS/layout files, DRC/LVS reports
 ```
