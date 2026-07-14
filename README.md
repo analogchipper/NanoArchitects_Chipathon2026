@@ -200,7 +200,7 @@ Note:To prevent the reset mechanism from stalling, the lower comparator threshol
 **System Simulation Results**
 
 #### EC TIA System Linearity
-Full-system simulations under load indicate a maximum linear TIA current limit of 340 µA. This comfortably exceeds the requirements of our target application, as the most demanding sensor (Carbon Monoxide) reaches a maximum output of only 102 µA at 1000 ppm. The table below characterizes the TIA's linearity up to this physical saturation limit (Mean Absolute Deviation: 1.97%).
+Full-system simulations under load(worst case load value was taken 100pF) indicate a maximum linear TIA current limit of 340 µA. This comfortably exceeds the requirements of our target application, as the most demanding sensor (Carbon Monoxide) reaches a maximum output of only 102 µA at 1000 ppm. The table below characterizes the TIA's linearity up to this physical saturation limit (Mean Absolute Deviation: 1.97%).
 
 | Vref (V) | I (µA) | Vout Calculated (V) | Vout Simulated (V) | Deviation (%) |
 | :--- | :--- | :--- | :--- | :--- |
