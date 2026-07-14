@@ -172,6 +172,8 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 ![MOX Integrator Transient Waveform](docs/images/Integrator_tran_2k.png)
 ![MOX Integrator Transient Waveform](docs/images/Integrator_tran_20k.png)
 
+
+Note:To prevent the reset mechanism from stalling, the lower comparator threshold is set to 1.5V keeping it safely above the 1.3V reference
 **MOX Integrator Summary:** The MOX sensor acts as a variable resistor where its resistance changes according to the environmental gas concentration. This varying resistance dictates the amount of current entering the integrator's capacitor, which changes the time it takes for the output voltage to ramp from a 1.3V reference baseline up to a 2.5V threshold. An external MCU measures this specific ramp time to accurately determine the sensor resistance, which directly reflects the real-time gas concentration as can be seen in the above results.
 ### Bias Generator (BGR)
 
@@ -188,6 +190,39 @@ Dual-modal analog front-end ASIC for simultaneous MOX (metal-oxide) and EC (elec
 ![Multiple Bias Generation](docs/images/BGR_Opamp_MultipleBias.png)
 **BGR Summary:** The U-curve validates a highly stable reference voltage with a temperature coefficient of less than 50 ppm/°C across the target thermal operating range. The multi-bias generation network successfully buffers and scales this core voltage to provide clean, ratiometrically matched sub-rails (2.8V, 1.3V, and 0.8V) for all other on-chip blocks.
 ---
+
+### Overall Circuit
+
+**Circuit Schematic:** [Insert Link]
+
+**Circuit Simulation Demo Video:** [Insert Link]
+
+**System Simulation Results**
+
+#### EC TIA System Linearity
+Full-system simulations under load indicate a maximum linear TIA current limit of 340 µA. This comfortably exceeds the requirements of our target application, as the most demanding sensor (Carbon Monoxide) reaches a maximum output of only 102 µA at 1000 ppm. The table below characterizes the TIA's linearity up to this physical saturation limit (Mean Absolute Deviation: 1.97%).
+
+| Vref (V) | I (µA) | Vout Calculated (V) | Vout Simulated (V) | Deviation (%) |
+| :--- | :--- | :--- | :--- | :--- |
+| 2.726 | 20 | 2.586 | 2.583 | -0.12% |
+| 2.726 | 60 | 2.306 | 2.297 | -0.39% |
+| 2.726 | 100 | 2.026 | 2.011 | -0.74% |
+| 2.726 | 140 | 1.746 | 1.732 | -0.80% |
+| 2.726 | 180 | 1.466 | 1.447 | -1.30% |
+| 2.726 | 220 | 1.186 | 1.161 | -2.11% |
+| 2.726 | 260 | 0.906 | 0.8747 | -3.45% |
+| 2.726 | 300 | 0.626 | 0.5895 | -5.83% |
+| 2.726 | 340 | 0.346 | 0.3522 | 1.79% |
+
+#### MOX Integrator System Characterization
+The table below validates the system-level integrator performance across heavy gas leaks (2 kΩ) to clean air baselines (60 kΩ), demonstrating an exceptionally low Mean Absolute Deviation of just 2.79% from theoretical calculations.
+
+| VR (V) | C (nF) | Rs (kΩ) | Calculated Time (ms) | Simulated Time (ms) | Deviation (%) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 0.5 | 33 | 2 | 0.132 | 0.1288 | -2.42% |
+| 0.5 | 33 | 20 | 1.320 | 1.3386 | +1.41% |
+| 0.5 | 33 | 60 | 3.960 | 3.7799 | -4.55% |
+
 
 ## Repository Structure
 
