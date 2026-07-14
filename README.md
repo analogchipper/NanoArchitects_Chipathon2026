@@ -228,6 +228,7 @@ The table below validates system-level integrator performance across heavy gas l
 
 ---
 
+ To be Added: Column for load and no load simualtion results for both TIA and integrator
 ## Repository Structure
 
 ```
