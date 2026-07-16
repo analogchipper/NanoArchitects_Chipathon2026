@@ -196,7 +196,7 @@ A dual-modal analog front-end (AFE) ASIC for simultaneous MOX (metal-oxide) and 
 
 🔗 [View overall circuit schematic file (`ECMOX_tran.sch`)](xschem/afe_top/ECMOX_tran.sch)
 
-**Circuit Simulation Demo Video:** [Insert Link]
+**Circuit Simulation Demo Video:**https://drive.google.com/file/d/1EIAcDGiDs2bv0675VzP_CtwNlKRYshWA/view?usp=drive_link
 
 **System Simulation Results**
 
